@@ -1,16 +1,20 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Robot implements Contract {
 
     String name;
     ArrayList<String> inventory;
     HashMap<String, Integer> invent;
+    String objectString;
+    int objectSize;
     private boolean movement_status;
-    private double robot_size;
     private int distance;
     private String position;
     ArrayList<String> cache;
+
+    Scanner myObj = new Scanner(System.in);
 
     /** Constructor for a Robot.
      * 
@@ -26,20 +30,39 @@ public class Robot implements Contract {
 
     public void showOptions() {
         System.out.println("What would you like " + this.name + " to do :]? \n + grab() \n + drop() \n + examine() \n + use() \n + walk() \n + fly() \n + shrink() \n + grow() \n + rest()");
+        String prompt = myObj.nextLine();
+        prompt = this.prompt;
+        System.out.println("And what object do you have?");
+        String object = myObj.nextLine();
+        object = this.object;
+        System.out.println("What size is the object?");
+        int objectSize = myObj.nextInt(0);
+        objectSize = this.objectSize;
+        invent.put(object, objectSize);
+        use(prompt);
     }
 
     public void grab(String item) {
         // Add item to inventory
+
         inventory.add(item);
         invent.putIfAbsent(item, 10);
         System.out.println("I have grabbed the " + item + ", beep boop!");
         cache.add("grab");
+        inPossession(true);
+        // grabUndo = true;
     }
     
     public String drop(String item) {
-        inventory.remove(item);
-        System.out.println("Beep beep, I dropped the " + item + "!");
-        return item;
+        if (inventory.contains(object) && inPossession(true)) {
+            inventory.remove(item);
+            System.out.println("Beep beep, I dropped the " + item + "!");
+            return item;
+        }
+        else {
+            System.out.println("Silly human, I'm not holding anything. Try again");
+            showOptions();
+        }
     }
 
     public void examine(String item) {
@@ -59,7 +82,7 @@ public class Robot implements Contract {
     }
 
     public boolean fly(int x, int y) {
-        movement_status = false;
+        movement_status = true;
         return movement_status;
     }
 
@@ -68,8 +91,7 @@ public class Robot implements Contract {
     }
 
     public Number grow() {
-        System.out.println(" ascii ");
-        return robot_size * 2;
+
     }
 
    public void rest() {
@@ -87,6 +109,10 @@ public class Robot implements Contract {
             position = "home";
         }
         }
+    }
+
+    public boolean inPossession(boolean have){
+        return false;
     }
 
     public static void main(String[] args) {
