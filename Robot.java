@@ -8,7 +8,9 @@ public class Robot implements Contract {
     HashMap<String, Integer> invent;
     private boolean movement_status;
     private double robot_size;
-    ArrayList cache;
+    private int distance;
+    private String position;
+    ArrayList<String> cache;
 
     /** Constructor for a Robot.
      * 
@@ -45,11 +47,14 @@ public class Robot implements Contract {
     }
 
     public void use(String item) {
-
+        inventory.remove(item);
     }
 
     public boolean walk(String direction) {
         movement_status = true;
+        distance += 1;
+        position = direction;
+        System.out.println(this.name + " moved 1 space to the " + direction);
         return movement_status;
     }
 
@@ -63,6 +68,7 @@ public class Robot implements Contract {
     }
 
     public Number grow() {
+        System.out.println(" ascii ");
         return robot_size * 2;
     }
 
@@ -71,7 +77,16 @@ public class Robot implements Contract {
     }
 
     public void undo() {
-
+        // Go to the last place in the cache, perform the opposite 
+        String last_action = cache.get(cache.size()  - 1);
+        if (last_action == "grab") {
+            inventory.remove(inventory.size() - 1);
+        if (last_action == "walk") {
+            movement_status = false;
+            distance -= 1;
+            position = "home";
+        }
+        }
     }
 
     public static void main(String[] args) {
