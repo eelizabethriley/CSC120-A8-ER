@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Robot implements Contract {
 
     String name;
-    HashMap<String, Integer> invent;
+    HashMap<String, Integer> invent = new HashMap<String, Integer>();
     String object;
     int objectSize;
     String prompt;
@@ -32,6 +32,8 @@ public class Robot implements Contract {
     public Robot() {
         this("Mr.Robot 2000");
         System.out.println("You have made a robot 🤖");
+        //invent.put("computer", 2);
+
     }
 
     public Robot(String name) {
@@ -41,15 +43,45 @@ public class Robot implements Contract {
     public void showOptions() {
         System.out.println("What would you like me to do" + this.name +  " to do? :] + Type 'A' for me to examine \n + Type 'B' for me to walk \n + Type 'C' for me to fly \n + Type 'D' for me to shrink \n + Type 'E' for me to grow \n + Type 'F' for me to rest \n + Type 'G' for me to undo \n + Type 'H' for me to grab that object");
         String prompt = myObj.nextLine();
-        prompt = this.prompt;
+        this.prompt = prompt;
         System.out.println("And what object do you have?");
         String object = myObj.nextLine();
-        object = this.object;
+        this.object = object;
         System.out.println("What size is this object in lbs?");
-        int objectSize = myObj.nextInt(0);
-        objectSize = this.objectSize;
-        invent.put(object, objectSize);
+        int objectSize = myObj.nextInt();
+        this.objectSize = objectSize;
+        invent.put(object, objectSize); 
         use(prompt);
+    }
+
+    public void use(String item){
+        System.out.println("use method");
+        System.out.println(item);
+        System.out.println(object);
+        if (item == "A"){
+            examine(object);
+        } else if (item == "B"){
+            System.out.println("Which direction should I go?");
+            //code for direction
+
+        } else if (item == "C"){
+            System.out.print("Starting point: " + robot + "Please input your x value \n");
+            xCoordinate = myObj.nextInt();
+            System.out.println("Good, now input a y value \n");
+            yCoordinate = myObj.nextInt();
+            fly(xCoordinate, yCoordinate);
+        } else if (item == "D"){
+            shrink();
+        } else if (item == "E"){
+            grow();
+        } else if (item == "F") {
+            rest();
+        } else if (item == "G"){
+            undo();
+        } else if (item == "H") {
+            grab(object);
+        }
+        invent.remove(object);
     }
 
     public void grab(String item) {
@@ -63,7 +95,7 @@ public class Robot implements Contract {
     }
     
     public String drop(String item) {
-        if (invent.containsKey(object) && inPossession(true)) {
+        if (invent.containsKey(item) && inPossession(true)) {
             invent.remove(item);
             System.out.println("Beep beep, I dropped the " + item + "!");
             cache.add("drop");
@@ -84,11 +116,6 @@ public class Robot implements Contract {
         }
     }
 
-    public void use(String item) {
-        // "Consume" the item by removing it from the inventory.
-        invent.remove(item);
-        System.out.println(robot + ">>>" + item + "has been used!");
-    }
 
     public boolean walk(String direction) {
         distance += 5;
@@ -119,12 +146,14 @@ public class Robot implements Contract {
     public Number shrink() {
         objectSize /= 2;
         invent.put(object, objectSize);
+        System.out.println("I shrank the object down by half, beep beep! :]");
         return objectSize;
     }
 
     public Number grow() {
         objectSize *= 2;
         invent.put(object, objectSize);
+        System.out.println("I doubled the object's size, beep beep! :]" );
         return objectSize;
     }
 
@@ -136,7 +165,8 @@ public class Robot implements Contract {
     }
 
     public void undo() {
-        // Go to the last place in the cache, perform the opposite 
+        // Go to the last place in the cache, perform the opposite method.
+        // The method examine() does not need an undo method, because there is nothing to undo.
         String last_action = cache.get(cache.size()  - 1);
         if (last_action == "grab") {
             this.drop(object);
@@ -156,6 +186,9 @@ public class Robot implements Contract {
         else if (last_action == "shrink") {
             this.grow();
         }
+        else if (last_action == "grow") {
+            this.shrink();
+        }
     }
 
     public boolean inPossession(boolean have){
@@ -163,10 +196,9 @@ public class Robot implements Contract {
     }
 
     public static void main(String[] args) {
-    Robot henry = new Robot("Henry");
-    henry.showOptions();
-    henry.grab("apple");
-    henry.examine("apple");
+        Robot henry = new Robot("Henry");
+        henry.showOptions();
+        
     }
 }
 

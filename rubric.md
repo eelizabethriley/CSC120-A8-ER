@@ -15,12 +15,12 @@ _____ 10 pts: The class meaningfully implements each of the methods in described
       __YES___ `void grab(String item);`
       __YES___ `String drop(String item);`
       _____ `void examine(String item);`
-      _____ `void use(String item);`
+      __YES___ `void use(String item);`
       __YES___ `boolean walk(String direction);`
       _____ `boolean fly(int x, int y);`
       _____ `Number shrink();`
       _____ `Number grow();`
-      _____ `void rest();`
+      __YES___ `void rest();`
       _____ `void undo();`
 
 
