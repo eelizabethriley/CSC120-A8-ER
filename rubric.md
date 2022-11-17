@@ -10,7 +10,7 @@ Listed below are various aspects of the assignment.  When you turn in your work,
 
 ## Assignment Points:
 
-_____ 10 pts: The class meaningfully implements each of the methods in described in the `Contract` interface:
+_YES____ 10 pts: The class meaningfully implements each of the methods in described in the `Contract` interface:
 
       __YES___ `void grab(String item);`
       __YES___ `String drop(String item);`
@@ -21,7 +21,7 @@ _____ 10 pts: The class meaningfully implements each of the methods in described
       __YES___ `Number shrink();`
       __YES___ `Number grow();`
       __YES___ `void rest();`
-      _____ `void undo();`
+      __YES___ `void undo();`
 
 
 ## General Items:
@@ -30,18 +30,18 @@ __YES___ 4 pts: Programs compile without errors or warnings
 
 __YES___ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
-_____ 2 pt: Complies with style guidelines (missing items 1 pt each):
+__PART___ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
-      _____ Classes & class members all have Javadoc header comments
+      ___YES__ Classes & class members all have Javadoc header comments
 
       __YES___ Clear and consistent indentation of bracketed sections
 
       __YES___ Adheres to Java conventions on naming & capitalization
 
-      _____ Methods & variables all have clear and accurate names
+      __YES___ Methods & variables all have clear and accurate names
 
-      _____ Methods avoid confusing side effects
+      __PART___ Methods avoid confusing side effects
 
-_____ 1 pt: All required files included with submission (including completed `rubric.md` file)
+__YES___ 1 pt: All required files included with submission (including completed `rubric.md` file)
 
-_____ 1 pt: `reflection.md` contains your reflection on the assignment, **including a detailed description of the class you implemented and what it does**
+__YES___ 1 pt: `reflection.md` contains your reflection on the assignment, **including a detailed description of the class you implemented and what it does**
