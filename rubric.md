@@ -14,29 +14,29 @@ _____ 10 pts: The class meaningfully implements each of the methods in described
 
       __YES___ `void grab(String item);`
       __YES___ `String drop(String item);`
-      _____ `void examine(String item);`
+      __YES___ `void examine(String item);`
       __YES___ `void use(String item);`
       __YES___ `boolean walk(String direction);`
-      _____ `boolean fly(int x, int y);`
-      _____ `Number shrink();`
-      _____ `Number grow();`
+      __YES___ `boolean fly(int x, int y);`
+      __YES___ `Number shrink();`
+      __YES___ `Number grow();`
       __YES___ `void rest();`
       _____ `void undo();`
 
 
 ## General Items:
 
-_____ 4 pts: Programs compile without errors or warnings
+__YES___ 4 pts: Programs compile without errors or warnings
 
-_____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
+__YES___ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
 _____ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
       _____ Classes & class members all have Javadoc header comments
 
-      _____ Clear and consistent indentation of bracketed sections
+      __YES___ Clear and consistent indentation of bracketed sections
 
-      _____ Adheres to Java conventions on naming & capitalization
+      __YES___ Adheres to Java conventions on naming & capitalization
 
       _____ Methods & variables all have clear and accurate names
 
