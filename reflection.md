@@ -20,12 +20,22 @@ We created a Robot class representing a robot that, given an object, can perform
 
 - What additional methods (if any) did you implement alongside those listed in the interface?
 
-We added a "showOptions" method to display all of the available methods for this class to make it clear what actions this Robot can perform
+We added a "showOptions" method to display all of the available methods for this class in a list to make it clear what actions this Robot can perform, an idea we took from the previous assignment where we made the campus map.
 
 - What worked, what didn't, what advice would you give someone taking this course in the future?
 
+This was a fun assignment to work on because working through the contract to come up with our own logic was really interesting and it was cool to see
+that we interpreted the same methods from the contracted in very different ways.
+We were able to get the methods in the contract implemented to a functioning degree according to our logic.
 Katie had a really great idea to create a user interface in the use() method using a series of if/else statements that would allow the user to pick
 from the list of methods and easily go through them, asking the user for the object and size using a scanner, however we ran into a lot of confusion when implementing this and in the end weren't able to debug it for this assignment. I thought it was a really clever idea though and would like to revisit this in the future.
+While we did get all of the functions to work, we didn't quite get them all to function fully as we hoped, for example the examine method just prints out the whole hasmap rather that just returning the value for a given key, "item". We also were hoping to do something more interesting with "rest" but couldn't
+really figure out where to take this method in the context of the rest of our class.
+
+I would advise someone taking this course to be very organized when working on this assignment because things can become very confusing very quickly
+if you don't keep things clean. I would also recommend developing a solid idea of what class you want to create before even touching the computer. 
+Writing out your ideas on paper is a great starting point that forces you to consider how the different methods will work with each other before turning
+your ideas into code.
 
 
 KATIE'S REFLECTION:
